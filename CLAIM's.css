@@ -1,0 +1,164 @@
+/**
+ * @name claim's css
+ * @description CLAIM_GO's css theme.
+ * @author CLAIM_GO
+ * @version 1.0
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+body {
+    /* font, change to '' for default discord font */
+    --font: 'DM Mono'; /* change to '' for default discord font */
+    --code-font: 'DM Mono'; /* change to '' for default discord font */
+    font-weight: 300; /* text font weight. 300 is light, 400 is normal. DOES NOT AFFECT BOLD TEXT */
+    letter-spacing: -0.05ch; /* decreases letter spacing for better readability. recommended on monospace fonts.*/
+
+    /* sizes */
+    --gap: 12px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+    --border-thickness: 2px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+    --border-hover-transition: 0.2s ease; /* transition for borders when hovered */
+
+    /* animation/transition options */
+    --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+
+    /* top bar options */
+    --top-bar-height: var(--gap); /* height of the top bar (discord default is 36px, old discord style is 24px, var(--gap) recommended if button position is set to titlebar) */
+    --top-bar-button-position: titlebar; /* off: default position, hide: hide buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to channel titlebar (will hide title) */
+    --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+    --subtle-top-bar-title: off; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+
+    /* window controls */
+    --custom-window-controls: off; /* off: default window controls, on: custom window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button options */
+    --custom-dms-icon: off; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+    --dms-icon-svg-url: url(''); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size property) */
+    --dms-icon-color-before: var(--icon-secondary); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+    --custom-dms-background: on; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--blue-3), var(--blue-4)); /* синий градиент */
+
+    /* background image options */
+    --background-image: on; /* off: no background image, on: enable background image (must set url variable below) */
+    --background-image-url: url('https://images5.alphacoders.com/131/1315630.png'); /* url of the background image */
+
+    /* transparency/blur options */
+    --transparency-tweaks: on; /* enable transparency tweaks */
+    --remove-bg-layer: on; /* remove base background layer */
+    --panel-blur: on; /* enable blur effect */
+    --blur-amount: 8px; /* уменьшил blur для лучшей видимости */
+    --bg-floating: hsla(220, 40%, 10%, 0.8); /* сине-черный плавающий фон */
+
+    /* other options */
+    --small-user-panel: on; /* off: default user panel, on: smaller user panel like in old discord */
+
+    /* unrounding options */
+    --unrounding: off; /* off: default, on: remove rounded corners from panels */
+
+    /* styling options */
+    --custom-spotify-bar: on; /* off: default, on: custom text-like spotify progress bar */
+    --ascii-titles: on; /* off: default, on: use ascii font for titles at the start of a channel */
+    --ascii-loader: CLAIM_GO; /* off: default, system24: use system24 ascii loader, cats: use cats loader */
+
+    /* panel labels */
+    --panel-labels: on; /* off: default, on: add labels to panels */
+    --label-color: var(--text-muted); /* color of labels */
+    --label-font-weight: 500; /* font weight of labels */
+}
+
+/* color options - СИНЕ-ЧЕРНАЯ СХЕМА */
+:root {
+    --colors: on; /* off: discord default colors, on: midnight custom colors */
+
+    /* text colors */
+    --text-0: hsla(210, 100%, 95%, 0.9); /* светлый синий текст */
+    --text-1: hsla(210, 100%, 90%, 0.9); /* яркий бело-синий */
+    --text-2: hsla(210, 100%, 85%, 0.9); /* заголовки */
+    --text-3: hsla(210, 100%, 80%, 0.9); /* обычный текст */
+    --text-4: hsla(210, 50%, 70%, 0.8); /* иконки и каналы */
+    --text-5: hsla(210, 30%, 60%, 0.7); /* muted элементы */
+
+    /* background and dark colors - ПРОЗРАЧНЫЕ СИНЕ-ЧЕРНЫЕ */
+    --bg-1: hsla(220, 40%, 12%, 0.85); /* темные кнопки */
+    --bg-2: hsla(220, 40%, 10%, 0.8); /* панели */
+    --bg-3: hsla(220, 40%, 8%, 0.75); /* пространство */
+    --bg-4: hsla(220, 40%, 6%, 0.7); /* основной фон */
+    --hover: hsla(210, 70%, 50%, 0.15); /* ховер синий */
+    --active: hsla(210, 70%, 50%, 0.25); /* активный синий */
+    --active-2: hsla(210, 70%, 50%, 0.35); /* дополнительный активный */
+    --message-hover: hsla(210, 70%, 50%, 0.1); /* ховер сообщений */
+
+    /* accent colors - СИНИЕ АКЦЕНТЫ */
+    --accent-1: var(--blue-1); /* ссылки */
+    --accent-2: var(--blue-2); /* элементы */
+    --accent-3: var(--blue-3); /* кнопки */
+    --accent-4: var(--blue-4); /* ховер кнопок */
+    --accent-5: var(--blue-5); /* активные кнопки */
+    --accent-new: hsl(0, 70%, 60%); /* красный для важного */
+    --mention: linear-gradient(to right, hsla(210, 70%, 50%, 0.2) 40%, transparent); /* упоминания */
+    --mention-hover: linear-gradient(to right, hsla(210, 70%, 50%, 0.3) 40%, transparent); /* ховер упоминаний */
+    --reply: linear-gradient(to right, hsla(210, 50%, 50%, 0.15) 40%, transparent); /* ответы */
+    --reply-hover: linear-gradient(to right, hsla(210, 50%, 50%, 0.25) 40%, transparent); /* ховер ответов */
+
+    /* status indicator colors */
+    --online: hsl(120, 70%, 55%); /* онлайн */
+    --dnd: hsl(0, 70%, 55%); /* не беспокоить */
+    --idle: hsl(40, 70%, 55%); /* неактивен */
+    --streaming: hsl(270, 70%, 55%); /* стримит */
+    --offline: var(--text-4); /* оффлайн */
+
+    /* border colors */
+    --border-light: hsla(210, 50%, 50%, 0.2); /* светлые границы */
+    --border: hsla(210, 50%, 40%, 0.3); /* обычные границы */
+    --border-hover: var(--blue-2); /* ховер границ */
+    --button-border: hsla(210, 50%, 50%, 0.2); /* границы кнопок */
+
+    /* base colors - ОСНОВНЫЕ СИНИЕ ЦВЕТА */
+    --red-1: hsl(0, 70%, 65%);
+    --red-2: hsl(0, 70%, 60%);
+    --red-3: hsl(0, 70%, 55%);
+    --red-4: hsl(0, 70%, 50%);
+    --red-5: hsl(0, 70%, 45%);
+
+    --green-1: hsl(120, 70%, 65%);
+    --green-2: hsl(120, 70%, 60%);
+    --green-3: hsl(120, 70%, 55%);
+    --green-4: hsl(120, 70%, 50%);
+    --green-5: hsl(120, 70%, 45%);
+
+    --blue-1: hsl(210, 70%, 75%);
+    --blue-2: hsl(210, 70%, 65%);
+    --blue-3: hsl(210, 70%, 55%);
+    --blue-4: hsl(210, 70%, 45%);
+    --blue-5: hsl(210, 70%, 35%);
+
+    --yellow-1: hsl(40, 70%, 70%);
+    --yellow-2: hsl(40, 70%, 65%);
+    --yellow-3: hsl(40, 70%, 60%);
+    --yellow-4: hsl(40, 70%, 55%);
+    --yellow-5: hsl(40, 70%, 50%);
+
+    --purple-1: hsl(270, 70%, 70%);
+    --purple-2: hsl(270, 70%, 65%);
+    --purple-3: hsl(270, 70%, 60%);
+    --purple-4: hsl(270, 70%, 55%);
+    --purple-5: hsl(270, 70%, 50%);
+}
+
+/* Дополнительная прозрачность для основного фона */
+.appMount-3lHmkl {
+    background: transparent !important;
+}
+
+body {
+    background: transparent !important;
+}
